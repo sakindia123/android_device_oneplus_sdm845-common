@@ -30,6 +30,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1 \
     sdm.debug.prefersplit=1
 
+# Fling
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min.fling_velocity=150 \
+    ro.max.fling_velocity=20000
+
 # IOP
 PRODUCT_PROPERTY_OVERRIDES += \
     iop.enable_prefetch_ofr=1 \
