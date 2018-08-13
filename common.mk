@@ -22,8 +22,7 @@ $(call inherit-product, vendor/oneplus/sdm845-common/sdm845-common-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
@@ -69,10 +68,6 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     libvulkan
-
-# Doze
-PRODUCT_PACKAGES += \
-    OnePlusDoze
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
@@ -121,15 +116,24 @@ PRODUCT_PACKAGES += \
 
 # Pocket mode
 PRODUCT_PACKAGES += \
-    OnePlusPocketMode
+    OnePlusPocketMode \
+    DeviceHandler \
+    OnePlusDoze
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
+    power.qcom 
 
 # QTI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
+
+# Telephony
+PRODUCT_PACKAGES += \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
 
 # tri-state-key
 PRODUCT_PACKAGES += \

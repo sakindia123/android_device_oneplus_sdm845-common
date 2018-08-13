@@ -57,8 +57,11 @@ TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := 7.0.2 
 TARGET_KERNEL_CLANG_PATH := $(ANDROID_BUILD_TOP)/prebuilts/clang/host/$(HOST_OS)-x86/clang-r328903/bin
 
-# Enable real time lockscreen charging current values
+#Enable real time lockscreen charging current values
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+
+# Use Snapdragon LLVM, if available
+TARGET_USE_SDCLANG := true
 
 # Platform
 # TARGET_BOARD_PLATFORM := sdm845
@@ -77,6 +80,7 @@ BOARD_PREBUILT_VBMETAIMAGE := $(COMMON_PATH)/vbmeta.img
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 

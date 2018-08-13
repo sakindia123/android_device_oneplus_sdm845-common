@@ -74,3 +74,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=true \
     persist.data.wda.enable=true \
     persist.rmnet.data.enable=true
+
+# USB debugging at boot
+    persist.sys.usb.config=mtp,adb
+    ro.adb.secure=0
+    ro.secure=0
+    ro.debuggable=1
+    
+# burn in Enable burn-in protection
+    persist.debug.force_burn_in=true
+
+# Touch
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.qti.inputopts.enable=true
+
