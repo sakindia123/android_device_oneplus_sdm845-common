@@ -124,9 +124,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.qcom 
 
-# QTI
+# Sysconfig
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
+    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
+    $(LOCAL_PATH)/configs/google.xml:system/etc/sysconfig/google.xml
+
+# Spectrum
+PRODUCT_PACKAGES += \
+    init.spectrum.rc \
+    init.special_power.sh \
+    init.spectrum.sh
 
 # Telephony
 PRODUCT_PACKAGES += \
