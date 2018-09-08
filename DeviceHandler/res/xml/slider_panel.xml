@@ -17,51 +17,29 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="@string/buttons_title">
-    <SwitchPreference
-        android:key="button_swap"
-        android:title="@string/button_swap_title"
-        android:summary="@string/button_swap_summary" />
- </PreferenceCategory>    
-
-
-<PreferenceCategory
         android:title="@string/notification_slider">
 
         <ListPreference
-            android:key="slider_top"
+            android:key="keycode_top_position"
             android:dialogTitle="@string/action"
             android:title="@string/top_position"
             android:entries="@array/notification_slider_action_entries"
             android:entryValues="@array/notification_slider_action_entry_values" />
 
         <ListPreference
-            android:key="slider_middle"
+            android:key="keycode_middle_position"
             android:dialogTitle="@string/action"
             android:title="@string/middle_position"
             android:entries="@array/notification_slider_action_entries"
             android:entryValues="@array/notification_slider_action_entry_values" />
 
         <ListPreference
-            android:key="slider_bottom"
+            android:key="keycode_bottom_position"
             android:dialogTitle="@string/action"
             android:title="@string/bottom_position"
             android:entries="@array/notification_slider_action_entries"
             android:entryValues="@array/notification_slider_action_entry_values" />
 
-    </PreferenceCategory>
-
-     <PreferenceCategory 
-            android:key="graphics"
-            android:title="@string/graphics_title">  
-        <SwitchPreference 
-            android:key="srgb" 
-            android:summary="@string/srgb_mode_summary" 
-            android:title="@string/srgb_mode_title" />
-        <SwitchPreference
-            android:key="dci"
-            android:summary="@string/dci_mode_summary"
-            android:title="@string/dci_mode_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

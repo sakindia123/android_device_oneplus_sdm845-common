@@ -16,8 +16,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- General strings -->
-
-    <string name="device_settings">Device Settings</string>
     <string name="dlg_ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="reset">Reset</string>
@@ -26,8 +24,8 @@
     <string name="screen_off_gesture_title">Screen off gestures</string>
     <string name="group_applications">Applications</string>
     <string name="select_custom_app_title">Select custom application</string>
-    <string name="gestures_dashboard_summary">Gestures specific to OnePlus devices</string>
-    <string name="device_settings_dashboard_summary">Oneplus Buttons and Panel Settings</string>
+
+
     <string name="enable_gestures_title">Enable gestures</string>
     <string name="enable_gestures_summary">Enable screen off gestures</string>
     <string name="gestures_title">Gestures</string>
@@ -53,29 +51,7 @@
     <string name="vibrate">Vibrate</string>
     <string name="ring">Ring</string>
 
-
-
-
-    <string name="slider_mode_off">Off</string>
-    <string name="slider_mode_vibrate">Vibrate</string>
-    <string name="slider_mode_silent">Silent</string>
-    <string name="slider_mode_priority">Priority only</string>
-    <string name="slider_mode_alarm">Alarms only</string>
-    <string name="slider_mode_dnd">Total silence</string>
-    <string name="slider_mode_title_top">Top position</string>
-    <string name="slider_mode_title_center">Center position</string>
-    <string name="slider_mode_title_bottom">Bottom position</string>
-
-
-    <string name="buttons_title">Buttons</string>
     <string name="button_swap_title">Swap buttons</string>
     <string name="button_swap_summary">Swap the order of recents and back buttons</string>
-    
-    <!-- Color Modes-->
-	<string name="graphics_title">Graphics</string> 
-	<string name="srgb_mode_summary"></string>
-	<string name="srgb_mode_title">sRGB mode</string>
-        <string name="dci_mode_summary"></string>
-        <string name="dci_mode_title">Wide color gammut mode</string>
 
 </resources>

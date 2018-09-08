@@ -22,37 +22,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import com.slim.device.KernelControl;
 import com.slim.device.settings.ScreenOffGesture;
-import com.slim.device.settings.DeviceSettings;
+import com.slim.device.settings.SliderSettings;
 import com.slim.device.util.FileUtils;
-import com.slim.device.Utils;
+
 import java.io.File;
-import android.support.v7.preference.PreferenceManager;
+
 
 public class BootReceiver extends BroadcastReceiver {
-
-
-private void restore(String file, boolean enabled) {
-        if (file == null) {
-            return;
-        }
-if (enabled) {
-            Utils.writeValue(file, "1");
-        }
-    }
-
-private void restore(String file, String value) {
-        if (file == null) {
-            return;
-        }
-      Utils.writeValue(file, value);
-  }
-
-
     @Override
-       public void onReceive(final Context context, final Intent intent) {
+    public void onReceive(final Context context, final Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
                 enableComponent(context, ScreenOffGesture.class.getName());
                 SharedPreferences screenOffGestureSharedPreferences = context.getSharedPreferences(
@@ -62,17 +44,20 @@ private void restore(String file, String value) {
                         ScreenOffGesture.PREF_GESTURE_ENABLE, true));
             }
 
+            // Disable slider settings if needed
+            if (!KernelControl.hasSlider()) {
+                disableComponent(context, SliderSettings.class.getName());
+            } else {
+                enableComponent(context, SliderSettings.class.getName());
 
-                enableComponent(context, DeviceSettings.class.getName());
-                boolean sliderSwap = getPreferenceBoolean(context, "button_swap", false);
-                FileUtils.writeLine(KernelControl.SLIDER_SWAP_NODE, sliderSwap ? "1" : "0");
+                String sliderTop = getPreferenceString(context, "keycode_top_position", "601");
+                String sliderMiddle = getPreferenceString(context, "keycode_middle_position", "602");
+                String sliderBottom = getPreferenceString(context, "keycode_bottom_position", "603");
 
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_SRGB_SWITCH, false);
-        restore(SRGBModeSwitch.getFile(), enabled);
-        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_DCI_SWITCH, false);
-        restore(DCIModeSwitch.getFile(), enabled);
-
+                FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_TOP, sliderTop);
+                FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_MIDDLE, sliderMiddle);
+                FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_BOTTOM, sliderBottom);
+            }
     }
 
     private String getPreferenceString(Context context, String key, String defaultValue) {
